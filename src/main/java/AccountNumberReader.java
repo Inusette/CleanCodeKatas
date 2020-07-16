@@ -42,4 +42,31 @@ public class AccountNumberReader {
 
         return accountNumber;
     }
+
+    protected static String[][] readAccountNumberLines(String fileName) {
+
+        String[][] matrix = new String[9][3];
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))){
+
+            for (int lineCount = 0; lineCount < 4; lineCount++) {
+                String currentLine = bufferedReader.readLine();
+
+                if (currentLine.isEmpty()) {
+                    break;
+                }
+
+                for (int digitCount = 0; digitCount < 9; digitCount++) {
+                    matrix[digitCount][lineCount] = currentLine.substring(0, 3);
+                    currentLine = currentLine.substring(3);
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return matrix;
+    }
 }

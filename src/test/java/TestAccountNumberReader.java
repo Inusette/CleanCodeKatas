@@ -5,6 +5,8 @@
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 
 public class TestAccountNumberReader {
 
@@ -12,7 +14,11 @@ public class TestAccountNumberReader {
     @Test
     public void testReadFile() {
 
-        AccountNumberReader.readAccountNumberFile("src/example.txt");
+        String[][] digitShapes = AccountNumberReader.readAccountNumberLines("src/example.txt");
+
+        for (String[] digit : digitShapes) {
+            System.out.println(digit);
+        }
 
     }
 }

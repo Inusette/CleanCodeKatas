@@ -47,24 +47,22 @@ public class BankMachine {
         digitShapes.put(   " _ "
                             + "|_ "
                             + " _|", 5);
-/*
-        digitShapes.put(6,  " _ "
-                                + "|_ "
-                                + "|_|");
 
-        digitShapes.put(7,  " _ "
-                                + "  |"
-                                + "  |");
+        digitShapes.put(   " _ "
+                            + "|_ "
+                            + "|_|", 6);
 
-        digitShapes.put(8,  " _ "
-                                + "|_|"
-                                + "|_|");
+        digitShapes.put(   " _ "
+                            + "  |"
+                            + "  |", 7);
 
-        digitShapes.put(9,  " _ "
-                                + "|_|"
-                                + " _|");
+        digitShapes.put(   " _ "
+                            + "|_|"
+                            + "|_|", 8);
 
- */
+        digitShapes.put(   " _ "
+                            + "|_|"
+                            + " _|", 9);
 
         return digitShapes;
     }
