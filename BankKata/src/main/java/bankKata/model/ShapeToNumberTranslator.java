@@ -1,31 +1,24 @@
-import java.util.ArrayList;
+package bankKata.model;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-/**
- * @author Inna Pirina (<a href="mailto:Inna.Pirina@cas.de">Inna.Pirina@cas.de</a>)
- * @since 10.07.2020
- */
-public class BankMachine {
+public class ShapeToNumberTranslator {
 
-    public BankMachine() {
+    public static Optional<Integer> translateNumber(String[] shape) {
 
         Map<String, Integer> digitShapes = constructDigitShape();
 
+        String numberShape = String.join("", shape);
+
+        if (digitShapes.containsKey(numberShape)) {
+            return Optional.of(digitShapes.get(numberShape));
+        }
+        return Optional.empty();
     }
 
-    public List<Integer> readFile(Map<String, Integer> digitShapes, String[]... args) {
-
-        List<Integer> accountNumber = new ArrayList<Integer>(9);
-
-
-
-
-        return accountNumber;
-    }
-
-    private Map<String, Integer> constructDigitShape () {
+    private static Map<String, Integer> constructDigitShape () {
 
         Map<String, Integer> digitShapes = new HashMap<String, Integer>();
         digitShapes.put(   "   "
