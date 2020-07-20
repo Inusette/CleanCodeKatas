@@ -4,10 +4,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-/**
- * @author Inna Pirina (<a href="mailto:Inna.Pirina@cas.de">Inna.Pirina@cas.de</a>)
- * @since 19.07.2020
- */
 public class RomanNumberConverterTest {
 
     private RomanNumberConverter converter;

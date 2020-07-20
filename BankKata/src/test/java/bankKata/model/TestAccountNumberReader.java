@@ -1,10 +1,6 @@
-package bankKata.model; /**
- * @author Inna Pirina (<a href="mailto:Inna.Pirina@cas.de">Inna.Pirina@cas.de</a>)
- * @since 10.07.2020
- */
-import static org.junit.Assert.assertEquals;
+package bankKata.model;
 
-import bankKata.model.AccountNumberReader;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.util.List;
