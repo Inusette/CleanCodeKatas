@@ -1,4 +1,4 @@
-package bankKata.model;
+package bankKata.controller;
 
 
 import bankKata.controller.BankAccountController;
