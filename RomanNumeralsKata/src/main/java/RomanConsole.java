@@ -1,4 +1,3 @@
-import java.io.BufferedReader;
 import java.util.Scanner;
 
 /**
@@ -21,7 +20,6 @@ public class RomanConsole {
                 System.out.println("Bye! :)");
                 return;
             }
-
             try {
                 int givenNumber = Integer.parseInt(s);
                 System.out.println(romanNumberConverter.convertToRoman(givenNumber));
@@ -30,6 +28,5 @@ public class RomanConsole {
                 System.out.println("Please enter a valid whole number");
             }
         }
-
     }
 }

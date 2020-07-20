@@ -8,10 +8,10 @@ import java.util.List;
  */
 public class RomanNumberConverter {
 
-    private PowerCategory powerOne;
-    private PowerCategory powerTen;
-    private PowerCategory powerHundred;
-    private PowerCategory powerThousand;
+    protected PowerCategory powerOne;
+    protected PowerCategory powerTen;
+    protected PowerCategory powerHundred;
+    protected PowerCategory powerThousand;
 
     public RomanNumberConverter() {
         powerOne = new PowerCategory("I", "V", "X");
@@ -32,14 +32,14 @@ public class RomanNumberConverter {
         StringBuilder builder = new StringBuilder();
         for (Integer component : componentList) {
             PowerCategory powerCategory = findPowerCategory(component);
-            component = removeZerosFromNumber(component);
+            component = getFirstDigit(component);
             String romanComponent = buildRomanNumber(powerCategory, component);
             builder.append(romanComponent);
         }
         return builder.toString();
     }
 
-    private int removeZerosFromNumber(Integer component) {
+    protected int getFirstDigit(Integer component) {
         return Integer.parseInt(component.toString().substring(0, 1));
     }
 
@@ -47,37 +47,37 @@ public class RomanNumberConverter {
         String romanSign = "";
         switch (component) {
             case 1:
-                romanSign = powerCategory.smallSign;
+                romanSign = powerCategory.oneSign;
                 break;
             case 2:
-                romanSign = powerCategory.smallSign + powerCategory.smallSign;
+                romanSign = powerCategory.oneSign + powerCategory.oneSign;
                 break;
             case 3:
-                romanSign = powerCategory.smallSign + powerCategory.smallSign + powerCategory.smallSign;
+                romanSign = powerCategory.oneSign + powerCategory.oneSign + powerCategory.oneSign;
                 break;
             case 4:
-                romanSign = powerCategory.smallSign + powerCategory.mediumSign;
+                romanSign = powerCategory.oneSign + powerCategory.fiveSign;
                 break;
             case 5:
-                romanSign = powerCategory.mediumSign;
+                romanSign = powerCategory.fiveSign;
                 break;
             case 6:
-                romanSign = powerCategory.mediumSign + powerCategory.smallSign;
+                romanSign = powerCategory.fiveSign + powerCategory.oneSign;
                 break;
             case 7:
-                romanSign = powerCategory.mediumSign + powerCategory.smallSign + powerCategory.smallSign;
+                romanSign = powerCategory.fiveSign + powerCategory.oneSign + powerCategory.oneSign;
                 break;
             case 8:
-                romanSign = powerCategory.mediumSign + powerCategory.smallSign + powerCategory.smallSign + powerCategory.smallSign;
+                romanSign = powerCategory.fiveSign + powerCategory.oneSign + powerCategory.oneSign + powerCategory.oneSign;
                 break;
             case 9:
-                romanSign = powerCategory.smallSign + powerCategory.largeSign;
+                romanSign = powerCategory.oneSign + powerCategory.tenSign;
                 break;
         }
         return romanSign;
     }
 
-    public List<Integer> splitNumberByPower(Integer number) {
+    protected List<Integer> splitNumberByPower(Integer number) {
         char[] numberAsReverseCharArray  = new StringBuilder(number.toString()).reverse().toString().toCharArray();
         List<Integer> componentList = new ArrayList<>();
         for (int i = 0; i < numberAsReverseCharArray.length; i++) {
@@ -98,17 +98,15 @@ public class RomanNumberConverter {
         }
     }
 
-    private static class PowerCategory {
-        String smallSign;
-        String mediumSign;
-        String largeSign;
+    protected static class PowerCategory {
+        String oneSign;
+        String fiveSign;
+        String tenSign;
 
         public PowerCategory (String smallSign, String mediumSign, String largeSign) {
-            this.smallSign = smallSign;
-            this.mediumSign = mediumSign;
-            this.largeSign = largeSign;
+            this.oneSign = smallSign;
+            this.fiveSign = mediumSign;
+            this.tenSign = largeSign;
         }
     }
-
-
 }
