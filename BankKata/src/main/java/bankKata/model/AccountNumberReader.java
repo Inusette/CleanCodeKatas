@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
 
 public class AccountNumberReader {
 
@@ -31,21 +34,23 @@ public class AccountNumberReader {
         List<String[][]> accountShapes = new LinkedList<>();
 
         String[][] matrix = new String[9][3];
+        int lineCount = 0;
         for (String currentLine : lines) {
             if (currentLine.isEmpty()) {
                 accountShapes.add(matrix);
                 matrix = new String[9][3];
             }
             else {
-                int lineCount = lines.indexOf(currentLine) % 5;
+                int currentAccountLine = lineCount % 4;
                 for (int digitCount = 0; digitCount < 9; digitCount++) {
                     if (currentLine.length() < 3) {
                         currentLine += "   ";  // to account for the fact that spaces at the end of the line get removed
                     }
-                    matrix[digitCount][lineCount] = currentLine.substring(0, 3);
+                    matrix[digitCount][currentAccountLine] = currentLine.substring(0, 3);
                     currentLine = currentLine.substring(3);
                 }
             }
+            lineCount++;
         }
         return accountShapes;
     }
@@ -56,8 +61,7 @@ public class AccountNumberReader {
         try
         {
             fileLines = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
-        }
-        catch (IOException e)
+        } catch (IOException e)
         {
             e.printStackTrace();
         }
