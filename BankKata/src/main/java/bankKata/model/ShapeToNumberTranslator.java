@@ -18,44 +18,58 @@ public class ShapeToNumberTranslator {
         return Optional.empty();
     }
 
-    private static Map<String, Integer> constructDigitShape () {
+    private static Map<String, Integer> constructDigitShape() {
 
         Map<String, Integer> digitShapes = new HashMap<String, Integer>();
-        digitShapes.put(   "   "
-                            + "  |"
-                            + "  |", 1);
+        digitShapes.put(
+                       " _ "
+                        + "| |"
+                        + "|_|", 0);
 
-        digitShapes.put(   " _ "
-                            + " _|"
-                            + "|_ ", 2);
+        digitShapes.put(
+                       "   "
+                        + "  |"
+                        + "  |", 1);
 
-        digitShapes.put(   " _ "
-                            + " _|"
-                            + " _|", 3);
+        digitShapes.put(
+                       " _ "
+                        + " _|"
+                        + "|_ ", 2);
 
-        digitShapes.put(   "   "
-                            + "|_|"
-                            + "  |", 4);
+        digitShapes.put(
+                       " _ "
+                        + " _|"
+                        + " _|", 3);
 
-        digitShapes.put(   " _ "
-                            + "|_ "
-                            + " _|", 5);
+        digitShapes.put(
+                       "   "
+                        + "|_|"
+                        + "  |", 4);
 
-        digitShapes.put(   " _ "
-                            + "|_ "
-                            + "|_|", 6);
+        digitShapes.put(
+                       " _ "
+                        + "|_ "
+                        + " _|", 5);
 
-        digitShapes.put(   " _ "
-                            + "  |"
-                            + "  |", 7);
+        digitShapes.put(
+                       " _ "
+                        + "|_ "
+                        + "|_|", 6);
 
-        digitShapes.put(   " _ "
-                            + "|_|"
-                            + "|_|", 8);
+        digitShapes.put(
+                      " _ "
+                        + "  |"
+                        + "  |", 7);
 
-        digitShapes.put(   " _ "
-                            + "|_|"
-                            + " _|", 9);
+        digitShapes.put(
+                       " _ "
+                        + "|_|"
+                        + "|_|", 8);
+
+        digitShapes.put(
+                       " _ "
+                        + "|_|"
+                        + " _|", 9);
 
         return digitShapes;
     }
