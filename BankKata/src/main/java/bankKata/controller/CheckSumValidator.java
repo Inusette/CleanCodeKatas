@@ -4,7 +4,7 @@ package bankKata.controller;
 import java.util.List;
 
 
-public class CheckSumCalculator {
+public class CheckSumValidator {
 
     private static final int CHECKSUM = 11;
 
