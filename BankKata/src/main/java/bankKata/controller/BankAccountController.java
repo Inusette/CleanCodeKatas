@@ -11,7 +11,7 @@ public class BankAccountController {
 
         AccountNumberReader accountNumberReader = new AccountNumberReader();
         List<List<Integer>> accountNumbers = accountNumberReader.readAccountNumberFile(args[0]);
-        CheckSumCalculator checkSumValidator = new CheckSumCalculator();
+        CheckSumValidator checkSumValidator = new CheckSumValidator();
 
         for (List<Integer> accountNumber : accountNumbers) {
             boolean isValid = checkSumValidator.validate(accountNumber);
